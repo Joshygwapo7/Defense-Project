@@ -1,0 +1,34 @@
+import random
+
+guessnum = random.randint(1, 100)
+life = 3
+max = 100
+min = 1
+
+while life > 0:
+    print("You have", life, "lives remaining")
+    num = int(input("Enter number from 1 - 100: "))
+
+    if num > max:
+        print("select numbers only from 1 - 100")
+    if num < min:
+        print("select numbers only from 1 - 100")
+
+    if num > guessnum:
+        print("You are wrong, please select a lower number")
+        life = life - 1
+    if num < guessnum:
+        print("You are wrong, please select a higher number")
+        life -= 1
+    if num == guessnum:
+        print("You are correct! Congratulations")
+        exit()
+
+    if life == 0:
+        print("Sorry, You have no more lives left", "The right number is", guessnum)
+        again = input("Do you want to try again? yes or no? ")
+        if again == "no":
+            exit("Thank you for using")
+        elif again == "yes":
+            life = 3
+            guessnum = random.randint(1, 100)
